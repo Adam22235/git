@@ -1,0 +1,33 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+ 
+    <script>
+         
+        function cal() {
+            const one1 = document.getElementById("one1");
+            const one2 = document.getElementById("one2");
+           
+            document.getElementById("one3").value = one1.value + one2.value ;
+        
+        }
+                </script>
+                <div1>
+                       <form>
+                       <input type="text" id="one1"></input>
+                       +
+                       <input type="text" id="one2"></input>
+                       =
+                       <input type="text" id="one3"></input>
+                      <button type="button" onclick="cal()">חשב</button> 
+                   </form>
+                </div1>
+</body>
+</html>
