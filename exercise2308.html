@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+<body>
+    <div>
+    <form>
+        <select  id="frut1">
+            <option>lemon</option>
+            <option>banana</option> 
+            <option>nana</option>
+        </select>
+
+      <input type="text" id="kg"> 
+      <button type="button" id="but" onclick="cal2()">תלחץ</button>
+    </form>
+<h3>הסכום הכולל הוא</h3>
+<p id="num0"> </p>
+</div>
+<div>
+    <h3>תעריף</h3>
+    <p>lemon  = 10</br>banana = 20 </br>nana = 30<p>
+        
+    </p>
+</div>
+<script>
+function cal2() {
+    
+        var num1 = document.getElementById("frut1").value
+       
+        if(num1 ==="lemon"){num1 = "10"}
+        
+        else if(num1==="banana"){num1 = "20"}
+        else if(num1==="nana"){num1 = "30"}
+        
+        var num2 = document.getElementById("kg").value
+        var num2= +num2
+        
+        document.getElementById("num0").innerHTML= num1 * num2
+   }
+    
+</script>
+   
+</body>
+</html> 

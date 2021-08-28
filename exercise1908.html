@@ -1,27 +1,32 @@
 <html>
 <head>
 </head>
-<body style="background-color: blue;">
-<form>
-<input type="text" id="num1">
-<button type="button" onclick="cal()">תגיד</button>
-</form>
-<h1>שלום</h1>
-<p id="num3"> </p>
-          
+<body>
+    <form>
+        <select  id="frut1">
+            <option>lemon</option>
+            <option>banana</option> 
+            <option>nana</option>
+        </select>
+
+      <input type="text" id="kg"> 
+      <button type="button" id="but" onclick="cal2">תלחץ</button>
+    </form>
+<h3>הסכום הכולל הוא</h3>
+<p id="num0"> </p>
 <script>
-    function cal() { 
-var x = document.getElementById("num1").value
-var y = +x
-console.log(y)
-if(y<5){document.getElementById("num3").innerHTML = "תינוק" }
-else if(y>5 && y<11){document.getElementById("num3").innerHTML = "שלום מתבגר"}
-    else if(y>11 && y<13){document.getElementById("num3").innerHTML = "שלום מתבגר"}
-    else if(y>13 && y<18){document.getElementById("num3").innerHTML = "שלום נער"}
-    else if(y>11 && y<13){document.getElementById("num3").innerHTML ="שלום בגיר"} 
-
-}
+function cal() {
+    
+        var num1 = document.getElementById("frut1")
+          console.log("num1")
+        if(num1 ==="lemon"){num1 = "10"}
+        else if(num1==="bana"){num1 = "20"}
+        else if(num1==="nana"){num1 = "30"}
+        var num2 = document.getElementById("kg")
+        document.getElementById("num0").innerHTML= num1 * num2  
+   }
+    
 </script>
-
+   
 </body>
 </html> 
