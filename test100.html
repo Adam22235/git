@@ -1,0 +1,119 @@
+<html>
+<head>
+</head>
+ 
+
+<body>
+<style>
+ .list{border: black solid 2px;
+    height: 300px;
+    width: 200px;
+    display: flexbox;
+    direction:ltr;
+    flex-direction:column;}
+    
+    table{border: black solid 2px;}
+    tr{border: black solid 2px;}
+    td{border: black solid 2px;}
+</style>
+
+<form>
+    <div class="list">
+<span>id</span><br>
+<input class="text" type="text" name="id">
+<span>firstname</span>
+<input class="text" type="text" name="firstname">
+<span>lastname</span>
+<input class="text" type="text" name="lastname">
+<span>men</span>
+<input type="radio" name="gander" value="men">
+<span>women</span>
+<input type="radio" name="gander" value="women">
+<br>
+<span>hobi</span>
+<br>
+<select class="text" type="text" name="hobi">
+    <option>sleep</option>
+    <option>tv</option>
+    <option>smoking</option>
+</select>
+<br>
+<span>Url</span>
+<br>
+<input class="text" type="url" name="url">
+
+<button type="button" onclick="hader()">sends</button>
+</div>
+</form>
+
+
+<div class="cal"></div>
+
+
+
+
+<script>
+    const obj={}
+    const person=[]
+const form=document.querySelector('form')
+
+function hader(){ 
+    table()
+creatTr() 
+    event.preventDefault()
+
+    for(let sum in form||sum<form.length){
+        
+            obj[sum]=form.elements[sum].value
+      debugger
+      console.log(obj)
+      creatTd(obj)    
+    
+    console.log("good")
+      
+    }
+
+}
+
+
+
+
+function table(){
+
+const div=document.querySelector('.cal')
+const table=document.createElement('table')
+debugger
+div.appendChild(table)
+
+return table
+}
+
+function creatTr(){
+
+const div=document.querySelector('table')
+const tr=document.createElement('tr')
+div.appendChild(tr)
+return
+tr
+}
+
+
+
+function creatTd(obj){
+const div=document.querySelector('tr')
+const td=document.createElement('td')
+for(let obj1 in obj){
+td.innerHTML=obj[obj1]
+div.appendChild(td)
+
+
+}
+return
+td
+}
+
+</script>
+
+</body>
+
+</html>
