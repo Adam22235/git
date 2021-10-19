@@ -1,0 +1,74 @@
+<html>
+<head>
+</head>
+<body>
+     <style>
+         .st{
+             border: black solid 2px;
+             width: 300px;
+             height: 350px;
+            }
+            .st3{height: 30px;
+            width: 300px;}
+            .st2{width: 50px; display:inline-block;}
+            .item-pics{width: 100px; height: 100px;}
+            .itemem{height: 160px;
+                width: 100px;
+                border: solid black 2px;}
+     </style>
+
+
+     <div class="st">
+<form>
+    <div class="st3">
+<label for="id" class="st2">id:</label><input type="text" name="id" id="id">
+</div>
+<div class="st3">
+<label for="name" class="st2">name:</label><input type="text" name="name" id="name">
+</div>
+<div class="st3">
+<label for="price" class="st2">price:</label><input type="text" name="price" id="price">
+</div>
+<div class="st3">
+<label for="pics" class="st2">pics:</label><input type="text" name="pics" id="pics">
+</div>
+<button type="button" onclick="cal()">add</button>
+</form>
+</div  class="hader1">    
+
+
+</div>
+  
+</body>
+
+<script>
+    const items=[]
+    const form=document.querySelector('form')
+    const hader=document.querySelector('.hader1')
+
+    function cal(){
+        
+    
+const id=form.elements['id'].value
+const name=form.elements['name'].value
+const price=form.elements['price'].value
+const pics=form.elements['pics'].value
+const item={id:id, name:name, price:price, pics:pics}
+debugger
+additem(item)
+    }
+
+    function additem(list){
+
+const divhader=document.createElement('div')
+debugger
+divhader.classList.add('itemem')
+hader.appendChild(divhader)
+
+cosole.log("itememmmmmmmmmmmmmmmmmmmmm")}
+
+
+
+</script>
+
+    </html>
