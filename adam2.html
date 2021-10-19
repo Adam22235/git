@@ -1,0 +1,31 @@
+
+
+function additem(list){
+    debugger
+const divhader=document.createElement('div')
+const hader=document.querySelector('hader1')
+
+divhader.classList.add('itemem')
+hader.appendChild(divhader)
+
+cosole.log("itememmmmmmmmmmmmmmmmmmmmm")
+const hader=document.querySelector('itmem')
+const divname=document.createElement('div')
+divname.innerHTML=list.name
+hader.appendChild(divname)
+
+
+console.log("nameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+
+const divprice=document.createElement('div')
+divprice.innerHTML=list.price
+hader.appendChild(divprice)
+
+
+console.log("priceeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+
+const divpics=document.createElement('img')
+divpics.src=list.pics
+hader.appendChild(divname)
+hader.appendChild(divpics)
+}
