@@ -1,0 +1,22 @@
+<html>
+<head>
+
+</head>    
+<body>
+
+
+<div>0</div>
+<button type="button" onclick="cal()">click++</button>
+<script>
+    const click=document.querySelector('div')
+    let x= Number(localStorage.getItem('value'));
+debugger
+    function cal(){
+     x=++x
+click.innerHTML=x
+localStorage.setItem('value',x)}
+    
+
+</script>
+</body>
+</html>
