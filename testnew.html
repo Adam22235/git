@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+<style>
+.class1{
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    background-color: crimson;
+    display: inline-block; 
+    
+}
+.a1{
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    
+    
+}
+.class3{
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+   
+}
+</style>
+<div class="class1"> </div>
+
+
+<script>
+
+
+
+const div=document.querySelector('.class1')
+
+function creatdivs(num){
+for(let x=0;x<num;x++){
+    const div1=document.createElement('div')
+div1.classList.add('class3')
+div.appendChild(div1)}}
+
+creatdivs(6)
+const divs=document.querySelector('.class3')
+divs.addEventListener('click',target) 
+function target(event){
+console.log(event.target)
+}
+
+</script>
+
+</body>
+
+</html>
