@@ -1,0 +1,141 @@
+
+<html>
+ <head>
+<body>
+<style>
+
+			body{
+	background-color: #db1414;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	margin-top: 10%;
+	justify-content: center;
+}
+
+input{
+	background-color:#30BDF2;
+	height: 20px;
+	width: 180px;
+	display: flex;
+	justify-content:flex-start;
+	transition: 1s;
+	cursor: pointer;
+    font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  
+  border-radius: 4px;
+}
+
+#btnAdd{
+	margin-top: 10px;
+    color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 10px;
+	border-radius: 20px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.note-container{width: 200px;height: 150px;display: inline-block;border: 1px solid green;margin: 5px;position: relative;}r
+.btn-delete{
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+}
+#list-of-notes{
+    margin-top: 20%;
+}
+		</style>
+        <div>
+            <form>
+
+                <label>Note:</label> <input type="text" name="text">
+                <label>Date:</label> <input type="text" name="date"> 
+                <label>Time:</label> <input type="text" name="time">
+               <button id="btnAdd" type="button">Add Note</button>
+            </form>
+        </div>
+        <div id="list-of-notes"></div>
+        <script>
+
+const form = document.querySelector('form')
+const arrayLocalStorageName = 'myNotes'
+function addNote() {
+    const note = {
+        text: form.elements['text'].value,
+        time: form.elements['time'].value,
+        date: form.elements['date'].value,
+    }
+    // []
+    const arrayOfNotesFromLocal = localStorage.getItem(arrayLocalStorageName)
+    const arrayOfNotes = arrayOfNotesFromLocal? JSON.parse(arrayOfNotesFromLocal) : []
+    arrayOfNotes.push(note)
+    //[note]
+    const i = arrayOfNotes.indexOf(note)
+    localStorage.setItem(arrayLocalStorageName, JSON.stringify(arrayOfNotes))
+    addNoteToDom(note, i)
+}
+
+const btnAdd = document.querySelector('#btnAdd')
+btnAdd.addEventListener('click', addNote)
+
+const notesRef = document.querySelector('#list-of-notes')
+
+function deleteNoteV1(index) {
+    console.log(index)
+}
+
+function filter(fn) {
+    fn(item, index)
+}
+function deleteNoteV2(event) {
+    const btnDelete = event.target
+    const containerRef = btnDelete.parentElement
+    const index = +containerRef.getAttribute('index')
+    const arrayOfNotes = JSON.parse (localStorage.getItem(arrayLocalStorageName))
+    const arrayFiltered = arrayOfNotes.filter(
+        function(note, i) {
+            debugger
+            return index !== i
+        }
+
+    )
+    localStorage.setItem(arrayLocalStorageName, JSON.stringify(arrayFiltered))
+    containerRef.remove()
+}
+
+function addNoteToDom(currentNote, i) {
+    const noteContaier = document.createElement('div')
+    noteContaier.setAttribute('index', i)
+    noteContaier.classList.add('note-container')
+    const noteText = document.createElement('div')
+    noteText.innerHTML = currentNote.text
+    const btnDelete = document.createElement('button')
+    
+    btnDelete.addEventListener('click',deleteNoteV2)
+    btnDelete.innerHTML ='Delete'
+    btnDelete.classList.add('btn-delete')
+    noteContaier.appendChild(noteText)
+    noteContaier.appendChild(btnDelete)
+    notesRef.appendChild(noteContaier)
+}
+
+function showNotes() {
+    const arrayOfNotes = JSON.parse (localStorage.getItem(arrayLocalStorageName))
+    for(let i = 0; i< arrayOfNotes.length; i++) {
+        const currentNote = arrayOfNotes[i]
+       addNoteToDom(currentNote, i)
+
+    }
+}
+showNotes() 
+
+        </script>
+    
+</body></html>
